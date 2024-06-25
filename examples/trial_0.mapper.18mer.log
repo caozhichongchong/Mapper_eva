@@ -1,0 +1,595 @@
+Mapper version 1.1.0-alpha106-experimental-kmers
+ gapmers using 18 basepairs each, with anchor block length 12
+1 reference files:
+Reference path = /media/caozhichongchong/0fca1a13-dd3f-43f5-9b94-876be77c58da/WS1/genome/donor_species/SNP_curate/test_data/penalty_test//am0230.fasta
+1 sets of queries: 
+/home/caozhichongchong/WS/WS2/scripts/snp_curate/SNP_model_penalty/compare_optimal//trial_0_all.fastq
+Loading reference
+total reference size: 197980904
+Processing query 1 at 1s (1 q/s), 1 workers, 0/300 ready jobs
+hashing lengths 1 - 53
+Hashed contig 10949/21896 (0%) at 1.617s
+Hashed contig 10977/21896 (5%) at 2.644s
+Hashed contig 11042/21896 (11%) at 3.647s
+Hashed contig 11161/21896 (18%) at 4.65s
+Hashed contig 11344/21896 (25%) at 5.658s
+Hashed contig 11587/21896 (32%) at 6.659s
+Hashed contig 11898/21896 (39%) at 7.677s
+Hashed contig 12300/21896 (45%) at 8.679s
+Hashed contig 12705/21896 (51%) at 9.68s
+Hashed contig 13262/21896 (57%) at 10.683s
+Hashed contig 13901/21896 (63%) at 11.69s
+Hashed contig 14655/21896 (69%) at 12.691s
+Hashed contig 15512/21896 (75%) at 13.692s
+Hashed contig 16568/21896 (81%) at 14.693s
+Hashed contig 17787/21896 (86%) at 15.694s
+Hashed contig 19230/21896 (92%) at 16.695s
+Hashed contig 21016/21896 (97%) at 17.696s
+Hashed contig 21896/21896 (100%) at 18.104s
+Hashed length 24, usage 29482279/98990452, saturation = 274691 keys, 609376 values (cumulative capacity 98990476) (num items added here 49490271) in 11848ms
+Hashed length 25, usage 29354047/98990452, saturation = 270929 keys, 594454 values (cumulative capacity 197980928) (num items added here 49129920) in 12097ms
+Hashed reference in 18.104s
+ 
+ Output from worker     2:
+ Estimate effectively 0 unique queries and 2 total queries; cache enabled fraction = 1.0, using cache for hashcodes up to 2147483646
+ 
+ Output from worker     0:
+ Estimate effectively 0 unique queries and 2 total queries; cache enabled fraction = 1.0, using cache for hashcodes up to 2147483646
+ Aligning      ATCAGCTGTCTGCCATCCACCCCTGTACGGGTATAATAATAGCGGTTGGAACGCGGCATCCATTGCATATTCTCAGTACGCTCCACCAAAACCTTAC
+  
+  Finding next seq match:
+  seq[4:28]  =      GCTGTCTGCCAT______CTGTAC
+  Hash code = -1317797864, reports matches in 1 locations:
+   NODE_168_length_29874_cov_7.239646 offset 27438 -> ACCGACGATCTGAGCGGCCGCTTC
+     checked basepair 11 in query block: got T in query and G in reference
+     checked basepair 12 in query block: got C in query and A in reference
+     checked basepair 13 in query block: got C in query and G in reference
+    skipping probable hash collision
+  
+  Finding next seq match:
+  seq[8:33]  =          TCTGCCATCCAC_______CGGGTA overlaps earlier block; saving for later
+  seq[12:36]  =              CCATCCACCCCT______GTATAA overlaps earlier block; saving for later
+  seq[4:28]  =      GCTGTC______CCACCCCTGTAC overlaps earlier block; saving for later
+  seq[7:32]  =         GTCTGC_______CCCTGTACGGGT overlaps earlier block; saving for later
+  seq[24:49]  =                          GTACGGGTATAA_______GGTTGG overlaps earlier block; saving for later
+  seq[28:52]  =                              GGGTATAATAAT______TGGAAC
+  Hash code = 1343991705, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 1 )
+  
+  Finding next seq match:
+  seq[32:57]  =                                  ATAATAATAGCG_______CGCGGC overlaps earlier block; saving for later
+  seq[23:48]  =                         TGTACG_______TAATAGCGGTTG overlaps earlier block; saving for later
+  seq[40:64]  =                                          AGCGGTTGGAAC______TCCATT overlaps earlier block; saving for later
+  seq[32:56]  =                                  ATAATA______GTTGGAACGCGG overlaps earlier block; saving for later
+  seq[48:73]  =                                                  GAACGCGGCATC_______TATTCT overlaps earlier block; saving for later
+  seq[52:77]  =                                                      GCGGCATCCATT_______CTCAGT
+  Hash code = 515793275, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[56:80]  =                                                          CATCCATTGCAT______AGTACG overlaps earlier block; saving for later
+  seq[47:72]  =                                                 GGAACG_______CATTGCATATTC overlaps earlier block; saving for later
+  seq[64:88]  =                                                                  GCATATTCTCAG______CCACCA overlaps earlier block; saving for later
+  seq[68:92]  =                                                                      ATTCTCAGTACG______CAAAAC overlaps earlier block; saving for later
+  seq[60:84]  =                                                              CATTGC______TCAGTACGCTCC overlaps earlier block; saving for later
+  seq[72:96]  =                                                                          TCAGTA______ACCAAAACCTTA overlaps earlier block; saving for later
+  seq[8:33]  =          TCTGCCATCCAC_______CGGGTA
+  Hash code = 846343434, reports matches in 1 locations:
+   NODE_873_length_11290_cov_20.153093 offset 4438 -> TGATAGAGCTCATTCATGAGTATGG
+     checked basepair 11 in query block: got C in query and A in reference
+     checked basepair 12 in query block: got C in query and T in reference
+     checked basepair 13 in query block: got C in query and T in reference
+    skipping probable hash collision
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[12:36]  =              CCATCCACCCCT______GTATAA
+  Hash code = 740653570, reports matches in 1 locations:
+   NODE_30_length_95014_cov_6.901873 offset 75835 -> TTGACAGGTCATAAAAAAGTCGCT
+     checked basepair 12 in query block: got G in query and A in reference
+     checked basepair 13 in query block: got T in query and A in reference
+    skipping probable hash collision
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[4:28]  =      GCTGTC______CCACCCCTGTAC
+  Hash code = 228382398, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[7:32]  =         GTCTGC_______CCCTGTACGGGT
+  Hash code = 383464585, reports matches in 1 locations:
+   NODE_423_length_23625_cov_8.322232 offset 22478 -> GTTTGTGATAAGAGGAGCACCGTAC
+     checked basepair 11 in query block: got A in query and G in reference
+     checked basepair 12 in query block: got C in query and A in reference
+     checked basepair 13 in query block: got C in query and G in reference
+    skipping probable hash collision
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[24:49]  =                          GTACGGGTATAA_______GGTTGG
+  Hash code = -1590629511, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[32:57]  =                                  ATAATAATAGCG_______CGCGGC
+  Hash code = -1926143089, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[23:48]  =                         TGTACG_______TAATAGCGGTTG
+  Hash code = -1728714523, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[40:64]  =                                          AGCGGTTGGAAC______TCCATT
+  Hash code = 936566585, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[32:56]  =                                  ATAATA______GTTGGAACGCGG
+  Hash code = -618920212, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[48:73]  =                                                  GAACGCGGCATC_______TATTCT
+  Hash code = -838171883, reports matches in 2 locations:
+   NODE_1138_length_2712_cov_3.129846 offset 295 -> GAAGTTTTCCTGACAGGGAGCTTTT
+     checked basepair 11 in query block: got C in query and G in reference
+     checked basepair 12 in query block: got C in query and A in reference
+     checked basepair 13 in query block: got A in query and C in reference
+    skipping probable hash collision
+   NODE_4828_length_2655_cov_2.815000-rev offset 295 (reverse offset 2263) -> GAAGTTTTCCTGACAGGGAGCTTTT
+     checked basepair 11 in query block: got C in query and G in reference
+     checked basepair 12 in query block: got C in query and A in reference
+     checked basepair 13 in query block: got A in query and C in reference
+    skipping probable hash collision
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[56:80]  =                                                          CATCCATTGCAT______AGTACG
+  Hash code = -1942313197, reports matches in 3 locations:
+   NODE_93_length_50486_cov_20.984157-rev offset 30859 (reverse offset 19530) -> AAAAGGAAAAATAAGCAGTGATCT
+     checked basepair 13 in query block: got T in query and A in reference
+   NODE_11_length_151371_cov_18.616749-rev offset 126573 (reverse offset 24701) -> AAAAGGAAAAATAAGCAGTGATCT
+     checked basepair 13 in query block: got T in query and A in reference
+   NODE_104_length_21277_cov_19.883611-rev offset 1692 (reverse offset 19488) -> CATCCATTGCATATTTTCAGTACG
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[47:72]  =                                                 GGAACG_______CATTGCATATTC
+  Hash code = -787700577, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[64:88]  =                                                                  GCATATTCTCAG______CCACCA
+  Hash code = -854123290, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[68:92]  =                                                                      ATTCTCAGTACG______CAAAAC
+  Hash code = 1985860336, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[60:84]  =                                                              CATTGC______TCAGTACGCTCC
+  Hash code = 970478800, reports matches in 1 locations:
+   NODE_104_length_21277_cov_19.883611-rev offset 1692 (reverse offset 19488) -> CATTGCATATTTTCAGTACGCTCC
+     checked basepair 11 in query block: got C in query and T in reference
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[72:96]  =                                                                          TCAGTA______ACCAAAACCTTA
+  Hash code = 1636532408, reports matches in 2 locations:
+   NODE_57_length_63885_cov_8.400345 offset 36885 -> CACAAATTCCGATTACGGCAAAAA
+     checked basepair 11 in query block: got C in query and A in reference
+     checked basepair 12 in query block: got A in query and T in reference
+     checked basepair 13 in query block: got C in query and T in reference
+    skipping probable hash collision
+   NODE_1193_length_8070_cov_5.225827 offset 3293 -> CCGTTACCAGCGCGGCTTTCGACT
+     checked basepair 11 in query block: got C in query and G in reference
+     checked basepair 12 in query block: got A in query and C in reference
+     checked basepair 13 in query block: got C in query and G in reference
+    skipping probable hash collision
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq Counting_HashBlockPath done
+  filterMatchesHavingPriority checked 0 candidates for priority -1. 
+  filterMatchesHavingPriority checked 0 candidates for priority 0. 
+  filterMatchesHavingPriority checked 0 candidates for priority 1. 
+  filterMatchesHavingPriority checked 0 candidates for priority 2. 
+  filterMatchesHavingPriority checked 0 candidates for priority 3. 
+  filterMatchesHavingPriority checked 1 candidates for priority 4. Found 1 matches with priority 4. 
+ Checking positions having number of hashblock mismatches = 4
+  Trying to align 7001174F:HVTFNBCXX161011:HVTFNBCXX:2:2113:19587:51675-rev at NODE_104_length_21277_cov_19.883611 offset 19488 having penalty <= 61.20000000000001
+   1-1 alignment for query at offset 19488:
+    query: GTAAGGTTTTGGTGGAGCGTACTGAGAATATGCAATGGATGCCGCGTTCCAACCGCTATTATTATACCCGTACAGGGGTGGATGGCAGACAGCTGAT
+      ref: GTAAGGTTTTGGCGGAGCGTACTGAAAATATGCAATGGATGCCTCGTTCTAACCGTTATTATTATACCCGTACGGGAGTGGATGGCAGGCAGCTGAT
+   Penalty of 1-1 alignment = 48.0; checking whether indels can lower the penalty
+    Creating new HashBlock_Matcher with section length 34
+    Mini blocks result: 8 match nowhere; 7 match at offset 19488
+    max extension penalty of long insertion = 8.0 because: 8 mismatches equals 48.0 penalty, available total penalty = 43.0, max allowed extra penalty beyond only SNPs = -5.0, penalty of 2 SNPs = 12.0 extension penalty of length-2 indel = 6.0, max allowed penalty for block extensions = 1.0, extra penalty per block extension = 6.0, max num block extensions = 0.16666666666666666
+    max extension penalty of many insertions = 48.0 because extra penalty per indel = -1.0
+    max extension penalty of many deletions = 48.0 because extra penalty per indel = -1.0
+    Found 7 hashblocks with offset 19488 If all mismatch, the penalty is 89.0 (max interesting penalty = 48.0)
+    Shrinking candidate reference to be within indel length of 16, to NODE_104_length_21277_cov_19.883611[19472:19601]
+    Mini blocks result: 8 match nowhere; 7 match at offset 19488
+    max extension penalty of long insertion = 8.0 because: 8 mismatches equals 48.0 penalty, available total penalty = 43.0, max allowed extra penalty beyond only SNPs = -5.0, penalty of 2 SNPs = 12.0 extension penalty of length-2 indel = 6.0, max allowed penalty for block extensions = 1.0, extra penalty per block extension = 6.0, max num block extensions = 0.16666666666666666
+    max extension penalty of many insertions = 48.0 because extra penalty per indel = -1.0
+    max extension penalty of many deletions = 48.0 because extra penalty per indel = -1.0
+    Found 7 hashblocks with offset 19488 If all mismatch, the penalty is 89.0 (max interesting penalty = 48.0)
+    Shrinking candidate reference to be within indel length of 16, to NODE_104_length_21277_cov_19.883611[19472:19601]
+     BlockAligner attempting to align query[0:32] and ref[19472:19536] with penalty <= 16.0
+      1-1 alignment for query[0:32] at offset 19488:
+       query: GTAAGGTTTTGGTGGAGCGTACTGAGAATATG
+         ref: GTAAGGTTTTGGCGGAGCGTACTGAAAATATG
+      Penalty of 1-1 alignment = 12.0; checking whether indels can lower the penalty
+       Mini blocks result: 2 match nowhere; 4 match at offset 19488
+       max extension penalty of long insertion = 7.0 because: 2 mismatches equals 12.0 penalty, available total penalty = 7.0, max allowed extra penalty beyond only SNPs = -5.0, penalty of 2 SNPs = 12.0 extension penalty of length-2 indel = 6.0, max allowed penalty for block extensions = 1.0, extra penalty per block extension = 6.0, max num block extensions = 0.16666666666666666
+       max extension penalty of many insertions = 12.0 because extra penalty per indel = -1.0
+       max extension penalty of many deletions = 12.0 because extra penalty per indel = -1.0
+       Found 4 hashblocks with offset 19488 If all mismatch, the penalty is 35.0 (max interesting penalty = 12.0)
+       Shrinking candidate reference to be within indel length of 4, to NODE_104_length_21277_cov_19.883611[19484:19524]
+       Creating new HashBlock_Matcher with section length 8
+       Mini blocks result: 2 match nowhere; 6 match at offset 19488
+       max extension penalty of long insertion = 7.0 because: 2 mismatches equals 12.0 penalty, available total penalty = 7.0, max allowed extra penalty beyond only SNPs = -5.0, penalty of 2 SNPs = 12.0 extension penalty of length-2 indel = 6.0, max allowed penalty for block extensions = 1.0, extra penalty per block extension = 3.0, max num block extensions = 0.3333333333333333
+       max extension penalty of many insertions = 12.0 because extra penalty per indel = -1.0
+       max extension penalty of many deletions = 12.0 because extra penalty per indel = -1.0
+       Found 6 hashblocks with offset 19488 If all mismatch, the penalty is 47.0 (max interesting penalty = 12.0)
+       Shrinking candidate reference to be within indel length of 4, to NODE_104_length_21277_cov_19.883611[19484:19524]
+        1-1 alignment for query[0:32] at offset 19488:
+         query: GTAAGGTTTTGGTGGAGCGTACTGAGAATATG
+           ref: GTAAGGTTTTGGCGGAGCGTACTGAAAATATG
+        Penalty of 1-1 alignment = 12.0; checking whether indels can lower the penalty
+         PathAligner looking for penalty <= 12.0
+         PathAligner aligning 7001174F:HVTFNBCXX161011:HVTFNBCXX:2:2113:19587:51675-rev[0:32] to NODE_104_length_21277_cov_19.883611[19484:19524]
+         PathAligner searchReverse = true, confidentAboutBestOffset = true, max interesting penalty = 12.0
+         PathAligner finds no sufficient alignment exists after 20 steps at NODE_104_length_21277_cov_19.883611 position 19484 because node penalty = 14.0 at 33,40 > 12.0
+        using 1-1 alignment with penalty 12.0
+      using 1-1 alignment with penalty 12.0
+     BlockAligner attempting to align query[32:64] and ref[19504:19568] with penalty <= 18.0
+      1-1 alignment for query[32:64] at offset 19488:
+       query: CAATGGATGCCGCGTTCCAACCGCTATTATTA
+         ref: CAATGGATGCCTCGTTCTAACCGTTATTATTA
+      Penalty of 1-1 alignment = 18.0; checking whether indels can lower the penalty
+       Mini blocks result: 3 match nowhere; 1 match at offset 19488
+       max extension penalty of long insertion = 18.0 because: 3 mismatches equals 18.0 penalty, available total penalty = 18.0, max allowed extra penalty beyond only SNPs = 0.0, penalty of 2 SNPs = 12.0 extension penalty of length-2 indel = 6.0, max allowed penalty for block extensions = 6.0, extra penalty per block extension = 6.0, max num block extensions = 1.0
+       max extension penalty of many insertions = 23.0 because extra penalty per indel = -1.0
+       max extension penalty of many deletions = 18.0 because extra penalty per indel = -1.0
+       Found 1 hashblocks with offset 19488 If all mismatch, the penalty is 18.0 (max interesting penalty = 18.0)
+        1-1 alignment for query[32:64] at offset 19488:
+         query: CAATGGATGCCGCGTTCCAACCGCTATTATTA
+           ref: CAATGGATGCCTCGTTCTAACCGTTATTATTA
+        Penalty of 1-1 alignment = 18.0; checking whether indels can lower the penalty
+         PathAligner looking for penalty <= 18.0
+         PathAligner aligning 7001174F:HVTFNBCXX161011:HVTFNBCXX:2:2113:19587:51675-rev[32:64] to NODE_104_length_21277_cov_19.883611[19504:19568]
+         PathAligner searchReverse = true, confidentAboutBestOffset = false, max interesting penalty = 18.0
+         PathAligner found an answer at 1, 17 after 328 steps
+         PathAligner found alignment at NODE_104_length_21277_cov_19.883611 position 19520 aligned penalty = 18.0
+         Query:CAATGGATGCCGCGTTCCAACCGCTATTATTA
+         Ref  :CAATGGATGCCTCGTTCTAACCGTTATTATTA
+        using 1-1 alignment with penalty 18.0
+      using 1-1 alignment with penalty 18.0
+     BlockAligner attempting to align query[64:97] and ref[19536:19601] with penalty <= 18.0
+      1-1 alignment for query[64:97] at offset 19488:
+       query: TACCCGTACAGGGGTGGATGGCAGACAGCTGAT
+         ref: TACCCGTACGGGAGTGGATGGCAGGCAGCTGAT
+      Penalty of 1-1 alignment = 18.0; checking whether indels can lower the penalty
+       Mini blocks result: 3 match nowhere; 2 match at offset 19488
+       max extension penalty of long insertion = 18.0 because: 3 mismatches equals 18.0 penalty, available total penalty = 18.0, max allowed extra penalty beyond only SNPs = 0.0, penalty of 2 SNPs = 12.0 extension penalty of length-2 indel = 6.0, max allowed penalty for block extensions = 6.0, extra penalty per block extension = 6.0, max num block extensions = 1.0
+       max extension penalty of many insertions = 23.0 because extra penalty per indel = -1.0
+       max extension penalty of many deletions = 18.0 because extra penalty per indel = -1.0
+       Found 2 hashblocks with offset 19488 If all mismatch, the penalty is 24.0 (max interesting penalty = 18.0)
+       Shrinking candidate reference to be within indel length of 7, to NODE_104_length_21277_cov_19.883611[19545:19592]
+       Creating new HashBlock_Matcher with section length 14
+       Mini blocks result: 3 match nowhere; 3 match at offset 19488
+       max extension penalty of long insertion = 18.0 because: 3 mismatches equals 18.0 penalty, available total penalty = 18.0, max allowed extra penalty beyond only SNPs = 0.0, penalty of 2 SNPs = 12.0 extension penalty of length-2 indel = 6.0, max allowed penalty for block extensions = 6.0, extra penalty per block extension = 6.0, max num block extensions = 1.0
+       max extension penalty of many insertions = 23.0 because extra penalty per indel = -1.0
+       max extension penalty of many deletions = 18.0 because extra penalty per indel = -1.0
+       Found 3 hashblocks with offset 19488 If all mismatch, the penalty is 30.0 (max interesting penalty = 18.0)
+       Shrinking candidate reference to be within indel length of 7, to NODE_104_length_21277_cov_19.883611[19545:19592]
+        1-1 alignment for query[64:97] at offset 19488:
+         query: TACCCGTACAGGGGTGGATGGCAGACAGCTGAT
+           ref: TACCCGTACGGGAGTGGATGGCAGGCAGCTGAT
+        Penalty of 1-1 alignment = 18.0; checking whether indels can lower the penalty
+         PathAligner looking for penalty <= 18.0
+         PathAligner aligning 7001174F:HVTFNBCXX161011:HVTFNBCXX:2:2113:19587:51675-rev[64:97] to NODE_104_length_21277_cov_19.883611[19545:19592]
+         PathAligner searchReverse = false, confidentAboutBestOffset = true, max interesting penalty = 18.0
+         PathAligner finds no sufficient alignment exists after 84 steps at NODE_104_length_21277_cov_19.883611 position 19545 because node penalty = 19.0 at 15,19 > 18.0
+        using 1-1 alignment with penalty 18.0
+      using 1-1 alignment with penalty 18.0
+   using 1-1 alignment with penalty 48.0
+  Alignment result for 7001174F:HVTFNBCXX161011:HVTFNBCXX:2:2113:19587:51675-rev at NODE_104_length_21277_cov_19.883611 offset 19488 has penalty 48.0:
+   GTAAGGTTTTGGTGGAGCGTACTGAGAATATGCAATGGATGCCGCGTTCCAACCGCTATTATTATACCCGTACAGGGGTGGATGGCAGACAGCTGAT
+   GTAAGGTTTTGGCGGAGCGTACTGAAAATATGCAATGGATGCCTCGTTCTAACCGTTATTATTATACCCGTACGGGAGTGGATGGCAGGCAGCTGAT
+  filterMatchesHavingPriority checked 1 candidates for priority 5. Found 1 matches that should have already been processed. 
+  filterMatchesHavingPriority checked 1 candidates for priority 6. Found 1 matches that should have already been processed. 
+  filterMatchesHavingPriority checked 1 candidates for priority 7. Found 1 matches that should have already been processed. 
+  filterMatchesHavingPriority checked 1 candidates for priority 8. Found 1 matches that should have already been processed. 
+ Done checking alignment positions: estimatedPenalty = 54.0, bestPenalty = 48.0
+         Query: ATCAGCTGTCTGCCATCCACCCCTGTACGGGTATAATAATAGCGGTTGGAACGCGGCATCCATTGCATATTCTCAGTACGCTCCACCAAAACCTTAC
+      RC Query: GTAAGGTTTTGGTGGAGCGTACTGAGAATATGCAATGGATGCCGCGTTCCAACCGCTATTATTATACCCGTACAGGGGTGGATGGCAGACAGCTGAT
+ Difference   :             !            !                 !     !     !                 !  !           !        
+ Aligned ref  : GTAAGGTTTTGGCGGAGCGTACTGAAAATATGCAATGGATGCCTCGTTCTAACCGTTATTATTATACCCGTACGGGAGTGGATGGCAGGCAGCTGAT(NODE_104_length_21277_cov_19.883611, offset 19488)
+ Penalty      : 48.0 (length: 97)
+  
+ 
+ Output from worker     1:
+ Estimate effectively 0 unique queries and 4 total queries; cache enabled fraction = 1.0, using cache for hashcodes up to 2147483646
+ Aligning      ATGAAGAGCGGAGCAGTTCACTTAAGCAAGATAACAAAAAGCTACATAGTTTGGCGGCTGTGTTGCTTGGAACACGTTTTGCCGGAGTAGGGCTTTC
+  
+  Finding next seq match:
+  seq[8:32]  =          CGGAGCAGTTCA______CAAGAT
+  Hash code = 1761312829, reports matches in 0 locations:
+  
+  Finding next seq match:
+  seq[12:36]  =              GCAGTTCACTTA______ATAACA overlaps earlier block; saving for later
+  seq[4:28]  =      AGAGCG______TTCACTTAAGCA overlaps earlier block; saving for later
+  seq[20:45]  =                      CTTAAGCAAGAT_______AGCTAC overlaps earlier block; saving for later
+  seq[24:49]  =                          AGCAAGATAACA_______ACATAG overlaps earlier block; saving for later
+  seq[28:53]  =                              AGATAACAAAAA_______AGTTTG overlaps earlier block; saving for later
+  seq[20:44]  =                      CTTAAG______AACAAAAAGCTA overlaps earlier block; saving for later
+  seq[36:60]  =                                      AAAAGCTACATA______CGGCTG
+  Hash code = 746050723, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 1 )
+  
+  Finding next seq match:
+  seq[40:65]  =                                          GCTACATAGTTT_______GTGTTG overlaps earlier block; saving for later
+  seq[44:68]  =                                              CATAGTTTGGCG______TTGCTT overlaps earlier block; saving for later
+  seq[48:72]  =                                                  GTTTGGCGGCTG______TTGGAA overlaps earlier block; saving for later
+  seq[40:64]  =                                          GCTACA______GGCGGCTGTGTT overlaps earlier block; saving for later
+  seq[56:80]  =                                                          GCTGTGTTGCTT______CGTTTT overlaps earlier block; saving for later
+  seq[48:72]  =                                                  GTTTGG______TGTTGCTTGGAA overlaps earlier block; saving for later
+  seq[51:76]  =                                                     TGGCGG_______GCTTGGAACACG overlaps earlier block; saving for later
+  seq[68:92]  =                                                                      GGAACACGTTTT______GTAGGG
+  Hash code = 2107577171, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[59:84]  =                                                             GTGTTG_______CACGTTTTGCCG overlaps earlier block; saving for later
+  seq[68:92]  =                                                                      GGAACA______GCCGGAGTAGGG overlaps earlier block; saving for later
+  seq[72:96]  =                                                                          CACGTT______GAGTAGGGCTTT overlaps earlier block; saving for later
+  seq[12:36]  =              GCAGTTCACTTA______ATAACA
+  Hash code = -380624733, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[4:28]  =      AGAGCG______TTCACTTAAGCA
+  Hash code = -431211504, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[20:45]  =                      CTTAAGCAAGAT_______AGCTAC
+  Hash code = 2127601430, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[24:49]  =                          AGCAAGATAACA_______ACATAG
+  Hash code = -1368187014, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[28:53]  =                              AGATAACAAAAA_______AGTTTG
+  Hash code = -1030729178, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[20:44]  =                      CTTAAG______AACAAAAAGCTA
+  Hash code = -768276897, reports matches in 1 locations:
+   NODE_104_length_21277_cov_19.883611 offset 19299 -> CTTAAGCAAGATAACAAAAAGCTA
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[40:65]  =                                          GCTACATAGTTT_______GTGTTG
+  Hash code = -1509182582, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[44:68]  =                                              CATAGTTTGGCG______TTGCTT
+  Hash code = -1491551930, reports matches in 1 locations:
+   NODE_177_length_38278_cov_4.510452 offset 12996 -> AAGTATCATGTGTCCTGTGAGTAT
+     checked basepair 12 in query block: got G in query and T in reference
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[48:72]  =                                                  GTTTGGCGGCTG______TTGGAA
+  Hash code = 2005692438, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[40:64]  =                                          GCTACA______GGCGGCTGTGTT
+  Hash code = 1835320792, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[56:80]  =                                                          GCTGTGTTGCTT______CGTTTT
+  Hash code = -885302296, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[48:72]  =                                                  GTTTGG______TGTTGCTTGGAA
+  Hash code = -1188342861, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[51:76]  =                                                     TGGCGG_______GCTTGGAACACG
+  Hash code = 352130360, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[59:84]  =                                                             GTGTTG_______CACGTTTTGCCG
+  Hash code = 286377894, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[68:92]  =                                                                      GGAACA______GCCGGAGTAGGG
+  Hash code = -1679485926, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq[72:96]  =                                                                          CACGTT______GAGTAGGGCTTT
+  Hash code = -1551898281, reports matches in 0 locations:
+  0 best seq positions found (having num mismatches = 2 )
+  
+  Finding next seq match:
+  seq Counting_HashBlockPath done
+  declaring all matches to be good in an effort to try some lookups
+  filterMatchesHavingPriority checked 0 candidates for priority -1. 
+  filterMatchesHavingPriority checked 0 candidates for priority 0. 
+  filterMatchesHavingPriority checked 0 candidates for priority 1. 
+  filterMatchesHavingPriority checked 0 candidates for priority 2. 
+  filterMatchesHavingPriority checked 0 candidates for priority 3. 
+  filterMatchesHavingPriority checked 0 candidates for priority 4. 
+  filterMatchesHavingPriority checked 2 candidates for priority 5. Found 2 matches with priority 5. 
+ Checking positions having number of hashblock mismatches = 5
+  Trying to align 7001174F:HVTFNBCXX161011:HVTFNBCXX:2:2113:19587:51675 at NODE_104_length_21277_cov_19.883611 offset 19299 having penalty <= 61.20000000000001
+   1-1 alignment for query at offset 19299:
+    query: ATGAAGAGCGGAGCAGTTCACTTAAGCAAGATAACAAAAAGCTACATAGTTTGGCGGCTGTGTTGCTTGGAACACGTTTTGCCGGAGTAGGGCTTTC
+      ref: ATCAAGAGGGAAGCATTTCACTTAAGCAAGATAACAAAAAGCTATATACTTTGGCGGATGTGTTGCATGGAACTCGTTTTGCCGGAGTAGGGCTTTC
+   Penalty of 1-1 alignment = 54.0; checking whether indels can lower the penalty
+    Creating new HashBlock_Matcher with section length 34
+    Mini blocks result: 9 match nowhere; 10 match at offset 19299
+    max extension penalty of long insertion = 8.0 because: 9 mismatches equals 54.0 penalty, available total penalty = 49.0, max allowed extra penalty beyond only SNPs = -5.0, penalty of 2 SNPs = 12.0 extension penalty of length-2 indel = 6.0, max allowed penalty for block extensions = 1.0, extra penalty per block extension = 6.0, max num block extensions = 0.16666666666666666
+    max extension penalty of many insertions = 54.0 because extra penalty per indel = -1.0
+    max extension penalty of many deletions = 54.0 because extra penalty per indel = -1.0
+    Found 10 hashblocks with offset 19299 If all mismatch, the penalty is 113.0 (max interesting penalty = 54.0)
+    Shrinking candidate reference to be within indel length of 18, to NODE_104_length_21277_cov_19.883611[19282:19413]
+     BlockAligner attempting to align query[0:32] and ref[19282:19349] with penalty <= 18.0
+      1-1 alignment for query[0:32] at offset 19299:
+       query: ATGAAGAGCGGAGCAGTTCACTTAAGCAAGAT
+         ref: ATCAAGAGGGAAGCATTTCACTTAAGCAAGAT
+      Penalty of 1-1 alignment = 24.0; checking whether indels can lower the penalty
+       Stopping searching for mismatched miniblocks: 4 mismatches indicates indel penalty 23.0, > 18.0
+       Mini blocks result: 4 match nowhere; 0 match at offset 19299
+       max extension penalty of long insertion = 0.0 because: 4 mismatches equals 24.0 penalty, available total penalty = 13.0, max allowed extra penalty beyond only SNPs = -11.0, penalty of 2 SNPs = 12.0 extension penalty of length-2 indel = 6.0, max allowed penalty for block extensions = -5.0, extra penalty per block extension = 6.0, max num block extensions = -0.8333333333333334
+       max extension penalty of many insertions = 18.0 because extra penalty per indel = -1.0
+       max extension penalty of many deletions = 18.0 because extra penalty per indel = -1.0
+       local hashblocks demonstrate no alignment: min possible penalty = 23.0 > 18.0
+     BlockAligner attempting to align query[32:64] and ref[19313:19381] with penalty <= 18.0
+      1-1 alignment for query[32:64] at offset 19299:
+       query: AACAAAAAGCTACATAGTTTGGCGGCTGTGTT
+         ref: AACAAAAAGCTATATACTTTGGCGGATGTGTT
+      Penalty of 1-1 alignment = 18.0; checking whether indels can lower the penalty
+       Mini blocks result: 3 match nowhere; 2 match at offset 19299
+       max extension penalty of long insertion = 18.0 because: 3 mismatches equals 18.0 penalty, available total penalty = 18.0, max allowed extra penalty beyond only SNPs = 0.0, penalty of 2 SNPs = 12.0 extension penalty of length-2 indel = 6.0, max allowed penalty for block extensions = 6.0, extra penalty per block extension = 6.0, max num block extensions = 1.0
+       max extension penalty of many insertions = 23.0 because extra penalty per indel = -1.0
+       max extension penalty of many deletions = 18.0 because extra penalty per indel = -1.0
+       Found 2 hashblocks with offset 19299 If all mismatch, the penalty is 24.0 (max interesting penalty = 18.0)
+       Shrinking candidate reference to be within indel length of 7, to NODE_104_length_21277_cov_19.883611[19324:19370]
+       Creating new HashBlock_Matcher with section length 14
+       Mini blocks result: 3 match nowhere; 3 match at offset 19299
+       max extension penalty of long insertion = 18.0 because: 3 mismatches equals 18.0 penalty, available total penalty = 18.0, max allowed extra penalty beyond only SNPs = 0.0, penalty of 2 SNPs = 12.0 extension penalty of length-2 indel = 6.0, max allowed penalty for block extensions = 6.0, extra penalty per block extension = 6.0, max num block extensions = 1.0
+       max extension penalty of many insertions = 23.0 because extra penalty per indel = -1.0
+       max extension penalty of many deletions = 18.0 because extra penalty per indel = -1.0
+       Found 3 hashblocks with offset 19299 If all mismatch, the penalty is 30.0 (max interesting penalty = 18.0)
+       Shrinking candidate reference to be within indel length of 7, to NODE_104_length_21277_cov_19.883611[19324:19370]
+        1-1 alignment for query[32:64] at offset 19299:
+         query: AACAAAAAGCTACATAGTTTGGCGGCTGTGTT
+           ref: AACAAAAAGCTATATACTTTGGCGGATGTGTT
+        Penalty of 1-1 alignment = 18.0; checking whether indels can lower the penalty
+         PathAligner looking for penalty <= 18.0
+         PathAligner aligning 7001174F:HVTFNBCXX161011:HVTFNBCXX:2:2113:19587:51675[32:64] to NODE_104_length_21277_cov_19.883611[19324:19370]
+         PathAligner searchReverse = true, confidentAboutBestOffset = true, max interesting penalty = 18.0
+         PathAligner finds no sufficient alignment exists after 75 steps at NODE_104_length_21277_cov_19.883611 position 19324 because node penalty = 20.0 at 33,45 > 18.0
+        using 1-1 alignment with penalty 18.0
+      using 1-1 alignment with penalty 18.0
+     BlockAligner attempting to align query[64:97] and ref[19345:19413] with penalty <= 18.0
+      1-1 alignment for query[64:97] at offset 19299:
+       query: GCTTGGAACACGTTTTGCCGGAGTAGGGCTTTC
+         ref: GCATGGAACTCGTTTTGCCGGAGTAGGGCTTTC
+      Penalty of 1-1 alignment = 12.0; checking whether indels can lower the penalty
+       Mini blocks result: 2 match nowhere; 5 match at offset 19299
+       max extension penalty of long insertion = 12.0 because: 2 mismatches equals 12.0 penalty, available total penalty = 12.0, max allowed extra penalty beyond only SNPs = 0.0, penalty of 2 SNPs = 12.0 extension penalty of length-2 indel = 6.0, max allowed penalty for block extensions = 6.0, extra penalty per block extension = 6.0, max num block extensions = 1.0
+       max extension penalty of many insertions = 17.0 because extra penalty per indel = -1.0
+       max extension penalty of many deletions = 12.0 because extra penalty per indel = -1.0
+       Found 5 hashblocks with offset 19299 If all mismatch, the penalty is 36.0 (max interesting penalty = 12.0)
+       Shrinking candidate reference to be within indel length of 5, to NODE_104_length_21277_cov_19.883611[19358:19401]
+       Creating new HashBlock_Matcher with section length 10
+       Mini blocks result: 2 match nowhere; 8 match at offset 19299
+       max extension penalty of long insertion = 12.0 because: 2 mismatches equals 12.0 penalty, available total penalty = 12.0, max allowed extra penalty beyond only SNPs = 0.0, penalty of 2 SNPs = 12.0 extension penalty of length-2 indel = 6.0, max allowed penalty for block extensions = 6.0, extra penalty per block extension = 3.0, max num block extensions = 2.0
+       max extension penalty of many insertions = 17.0 because extra penalty per indel = -1.0
+       max extension penalty of many deletions = 12.0 because extra penalty per indel = -1.0
+       Found 8 hashblocks with offset 19299 If all mismatch, the penalty is 54.0 (max interesting penalty = 12.0)
+       Shrinking candidate reference to be within indel length of 5, to NODE_104_length_21277_cov_19.883611[19358:19401]
+        1-1 alignment for query[64:97] at offset 19299:
+         query: GCTTGGAACACGTTTTGCCGGAGTAGGGCTTTC
+           ref: GCATGGAACTCGTTTTGCCGGAGTAGGGCTTTC
+        Penalty of 1-1 alignment = 12.0; checking whether indels can lower the penalty
+         PathAligner looking for penalty <= 12.0
+         PathAligner aligning 7001174F:HVTFNBCXX161011:HVTFNBCXX:2:2113:19587:51675[64:97] to NODE_104_length_21277_cov_19.883611[19358:19401]
+         PathAligner searchReverse = false, confidentAboutBestOffset = true, max interesting penalty = 12.0
+         PathAligner finds no sufficient alignment exists after 16 steps at NODE_104_length_21277_cov_19.883611 position 19358 because node penalty = 14.0 at 0,2 > 12.0
+        using 1-1 alignment with penalty 12.0
+      using 1-1 alignment with penalty 12.0
+     BlockAligner attempting to align query[0:32] and ref[19282:19349] with penalty <= 24.0
+      1-1 alignment for query[0:32] at offset 19299:
+       query: ATGAAGAGCGGAGCAGTTCACTTAAGCAAGAT
+         ref: ATCAAGAGGGAAGCATTTCACTTAAGCAAGAT
+      Penalty of 1-1 alignment = 24.0; checking whether indels can lower the penalty
+       Mini blocks result: 4 match nowhere; 3 match at offset 19299
+       max extension penalty of long insertion = 8.0 because: 4 mismatches equals 24.0 penalty, available total penalty = 19.0, max allowed extra penalty beyond only SNPs = -5.0, penalty of 2 SNPs = 12.0 extension penalty of length-2 indel = 6.0, max allowed penalty for block extensions = 1.0, extra penalty per block extension = 6.0, max num block extensions = 0.16666666666666666
+       max extension penalty of many insertions = 24.0 because extra penalty per indel = -1.0
+       max extension penalty of many deletions = 24.0 because extra penalty per indel = -1.0
+       Found 3 hashblocks with offset 19299 If all mismatch, the penalty is 41.0 (max interesting penalty = 24.0)
+       Shrinking candidate reference to be within indel length of 8, to NODE_104_length_21277_cov_19.883611[19291:19339]
+       Creating new HashBlock_Matcher with section length 16
+       Mini blocks result: 4 match nowhere; 3 match at offset 19299
+       max extension penalty of long insertion = 8.0 because: 4 mismatches equals 24.0 penalty, available total penalty = 19.0, max allowed extra penalty beyond only SNPs = -5.0, penalty of 2 SNPs = 12.0 extension penalty of length-2 indel = 6.0, max allowed penalty for block extensions = 1.0, extra penalty per block extension = 6.0, max num block extensions = 0.16666666666666666
+       max extension penalty of many insertions = 24.0 because extra penalty per indel = -1.0
+       max extension penalty of many deletions = 24.0 because extra penalty per indel = -1.0
+       Found 3 hashblocks with offset 19299 If all mismatch, the penalty is 41.0 (max interesting penalty = 24.0)
+       Shrinking candidate reference to be within indel length of 8, to NODE_104_length_21277_cov_19.883611[19291:19339]
+        1-1 alignment for query[0:32] at offset 19299:
+         query: ATGAAGAGCGGAGCAGTTCACTTAAGCAAGAT
+           ref: ATCAAGAGGGAAGCATTTCACTTAAGCAAGAT
+        Penalty of 1-1 alignment = 24.0; checking whether indels can lower the penalty
+         PathAligner looking for penalty <= 24.0
+         PathAligner aligning 7001174F:HVTFNBCXX161011:HVTFNBCXX:2:2113:19587:51675[0:32] to NODE_104_length_21277_cov_19.883611[19291:19339]
+         PathAligner searchReverse = false, confidentAboutBestOffset = true, max interesting penalty = 24.0
+         PathAligner finds no sufficient alignment exists after 145 steps at NODE_104_length_21277_cov_19.883611 position 19291 because node penalty = 25.0 at 5,14 > 24.0
+        using 1-1 alignment with penalty 24.0
+      using 1-1 alignment with penalty 24.0
+   using 1-1 alignment with penalty 54.0
+  Alignment result for 7001174F:HVTFNBCXX161011:HVTFNBCXX:2:2113:19587:51675 at NODE_104_length_21277_cov_19.883611 offset 19299 has penalty 54.0:
+   ATGAAGAGCGGAGCAGTTCACTTAAGCAAGATAACAAAAAGCTACATAGTTTGGCGGCTGTGTTGCTTGGAACACGTTTTGCCGGAGTAGGGCTTTC
+   ATCAAGAGGGAAGCATTTCACTTAAGCAAGATAACAAAAAGCTATATACTTTGGCGGATGTGTTGCATGGAACTCGTTTTGCCGGAGTAGGGCTTTC
+  Trying to align 7001174F:HVTFNBCXX161011:HVTFNBCXX:2:2113:19587:51675 at NODE_177_length_38278_cov_4.510452 offset 12996 having penalty <= 60.000000000000014
+   1-1 alignment for query at offset 12996:
+    query: ATGAAGAGCGGAGCAGTTCACTTAAGCAAGATAACAAAAAGCTACATAGTTTGGCGGCTGTGTTGCTTGGAACACGTTTTGCCGGAGTAGGGCTTTC
+      ref: TCAGACAGATAGATGTAGCAGAAAAAATGACAGCTCTGATCGAGAAGTATCATGTGTCCTGTGAGTATCTGGAAGTAGAAGTTTCAGAGTCTTACAG
+   Penalty of 1-1 alignment = 468.0; checking whether indels can lower the penalty
+    Creating new HashBlock_Matcher with section length 34
+    Stopping searching for mismatched miniblocks: 10 mismatches indicates indel penalty 59.0, > 57.000000000000014
+    Mini blocks result: 10 match nowhere; 0 match at offset 13001
+    max extension penalty of long insertion = 0.0 because: 10 mismatches equals 60.0 penalty, available total penalty = 52.000000000000014, max allowed extra penalty beyond only SNPs = -7.999999999999986, penalty of 2 SNPs = 12.0 extension penalty of length-2 indel = 6.0, max allowed penalty for block extensions = -1.9999999999999858, extra penalty per block extension = 6.0, max num block extensions = -0.333333333333331
+    max extension penalty of many insertions = 57.000000000000014 because extra penalty per indel = -1.0
+    max extension penalty of many deletions = 57.000000000000014 because extra penalty per indel = -1.0
+    local hashblocks demonstrate no alignment: min possible penalty = 59.0 > 57.000000000000014
+  Alignment result for 7001174F:HVTFNBCXX161011:HVTFNBCXX:2:2113:19587:51675 at NODE_177_length_38278_cov_4.510452 offset 12996 = null
+  filterMatchesHavingPriority checked 2 candidates for priority 6. Found 2 matches that should have already been processed. 
+  filterMatchesHavingPriority checked 2 candidates for priority 7. Found 2 matches that should have already been processed. 
+  filterMatchesHavingPriority checked 2 candidates for priority 8. Found 2 matches that should have already been processed. 
+  filterMatchesHavingPriority checked 2 candidates for priority 9. Found 2 matches that should have already been processed. 
+ Done checking alignment positions: estimatedPenalty = 60.0, bestPenalty = 54.0
+         Query: ATGAAGAGCGGAGCAGTTCACTTAAGCAAGATAACAAAAAGCTACATAGTTTGGCGGCTGTGTTGCTTGGAACACGTTTTGCCGGAGTAGGGCTTTC
+ Difference   :   !     ! !    !                            !   !        !        !      !                       
+ Aligned ref  : ATCAAGAGGGAAGCATTTCACTTAAGCAAGATAACAAAAAGCTATATACTTTGGCGGATGTGTTGCATGGAACTCGTTTTGCCGGAGTAGGGCTTTC(NODE_104_length_21277_cov_19.883611, offset 19299)
+ Penalty      : 54.0 (length: 97)
+  
+
+Statistics: 
+ Alignment rate                : 100% of query sequences (2/2)
+ Average penalty               : 0.52577317 per base (102/194) in aligned queries
+ Num indels                    : 0.0 per base (0/194) in aligned queries
+
+Timing:
+ Slowest query: #1 (28ms) : ATCAGCTGTCTGCCATCCACCCCTGTACGGGTATAATAATAGCGGTTGGAACGCGGCATCCATTGCATATTCTCAGTACGCTCCACCAAAACCTTAC aligned 1 time
+ Unaligned queries took        : 0 cpu-ms (0s)
+ Immediately accepted          : 0% alignments (0/2)
+ Alignment cache usage         : 0% (0) loaded, 100% (2) stored, 0% (0) skipped
+ Time reading queries          : 0ms
+ Time launching workers        : 1ms
+ Time waiting for workers      : 16929ms
+
+Done in 18.136s.
