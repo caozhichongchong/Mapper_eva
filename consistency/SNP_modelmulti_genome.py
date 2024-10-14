@@ -94,7 +94,7 @@ except IOError:
 
 def remove_unmappedreads(sam):
     cmds = ''
-    if 'mapper1' not in sam:
+    if 'mapper1' not in sam and 'last' not in sam:
         cmds = 'samtools view -F 4 %s > %s.mapped\n'%(sam,sam)# remove unmapped alignments
         cmds += 'mv %s.mapped %s\n'%(sam,sam)
     cmds += 'conda deactivate\npython /home/caozhichongchong/WS/WS2/github/snp_finder/snp_finder/scripts/samfiltersecondary.py -i %s\n'%(sam)
@@ -105,19 +105,19 @@ def remove_unmappedreads(sam):
 def run_bowtie(files,database,tempbamoutput):
     #
     # generate code
-    cmds = 'bowtie2-build %s %s\n'%(database,database)
+    cmds = '#bowtie2-build %s %s\n'%(database,database)
     #-a mode: search for and report all alignments, including secondary
     #-k mode: search for one or more alignments, report each
     # not using --ma for end to end model, --ignore-quals for mismatch quality, always use the highest penalty
-    cmds += '/usr/bin/time -v bowtie2 --threads %s --mp %s,%s --rfg %s,%s --rdg %s,%s --np %s --ignore-quals -x %s -1 %s -2 %s -S %s.sam\n' % (
+    cmds += '/usr/bin/time -v bowtie2 --threads %s --mp %s,%s --rfg %s,%s --rdg %s,%s --np %s -N 1 --ignore-quals -x %s -1 %s -2 %s -S %s.sam\n' % (
             min(40, args.t), penalty[0],penalty[0],penalty[1],penalty[2],penalty[1],penalty[2],penalty[4], database, files, files.replace('_1.fastq','_2.fastq'),tempbamoutput)
     if check_bowtieminimap_kmer:
-        cmds += '/usr/bin/time -v bowtie2 --threads %s --mp %s,%s --rfg %s,%s --rdg %s,%s --np %s --ignore-quals --seedlen=15 -x %s -1 %s -2 %s -S %s.15mer.sam\n' % (
+        cmds += '/usr/bin/time -v bowtie2 --threads %s --mp %s,%s --rfg %s,%s --rdg %s,%s --np %s -N 1 --ignore-quals --seedlen=15 -x %s -1 %s -2 %s -S %s.15mer.sam\n' % (
             min(40, args.t), penalty[0], penalty[0], penalty[1], penalty[2], penalty[1], penalty[2], penalty[4], database,
             files, files.replace('_1.fastq','_2.fastq'), tempbamoutput)
         cmds += remove_unmappedreads(tempbamoutput + '.15mer.sam')
     if include_secondary:
-        cmds += '/usr/bin/time -v bowtie2 -a --threads %s --mp %s,%s --rfg %s,%s --rdg %s,%s --np %s --ignore-quals -x %s -1 %s -2 %s -S %s.all.sam\n' % (
+        cmds += '/usr/bin/time -v bowtie2 -a --threads %s --mp %s,%s --rfg %s,%s --rdg %s,%s --np %s -N 1 --ignore-quals -x %s -1 %s -2 %s -S %s.all.sam\n' % (
             min(40, args.t), penalty[0], penalty[0], penalty[1], penalty[2], penalty[1], penalty[2], penalty[4],
             database, files, files.replace('_1.fastq','_2.fastq'), tempbamoutput)
         cmds += remove_unmappedreads(tempbamoutput + '.all.sam')
@@ -126,7 +126,7 @@ def run_bowtie(files,database,tempbamoutput):
 
 def run_minimap(files,database,tempbamoutput):
     # default setting claims to retain all primary mappings. -N output top secondary mappings, if higher than -p
-    cmds = 'minimap2 -d %s.mmi %s \n' % (database, database)
+    cmds = '#minimap2 -d %s.mmi %s \n' % (database, database)
     # -A match score set as 2, -B -= 2 and --score-N += 2
     if penalty[0] > 2:
         cmds += '/usr/bin/time -v minimap2 -ax sr -t %s -B %s -O %s -E %s -A %s --score-N %s %s.mmi %s %s >%s.sam\n' % (
@@ -160,7 +160,7 @@ def run_minimap(files,database,tempbamoutput):
 
 def run_bwa(files,database,tempbamoutput):
     # -a output all alignments for SE or unpaired PE
-    cmds = 'bwa index %s\n'%(database)
+    cmds = '#bwa index %s\n'%(database)
     # -A match score set as 2, -B -= 2
     if penalty[0] > 2:
         cmds += '/usr/bin/time -v bwa mem -t %s -B %s -O %s -E %s -A %s %s %s %s > %s.sam\n' % (
@@ -186,35 +186,68 @@ def run_mapper(files,database,tempbamoutput):
     max_penalty = penalty2[0]*0.1
     cmds = ''
     # spacing penalty <expected> <distancePerPenalty>  distancePerPenalty default = 50, new penalty = default/SNP_penalty
-    cmds += '/usr/bin/time -v java -Xms55g -Xmx55g -jar %s --max-penalty %.2f --snp-penalty %s --new-indel-penalty %s --extend-indel-penalty %s --ambiguity-penalty %s --max-penalty-span 0 --no-infer-ancestors --num-threads %s --reference %s --paired-queries %s %s --spacing 100 %s  --out-sam %s.sam\n' % (
-                latest_mapper, max_penalty, penalty2[0],penalty2[1],penalty2[2],penalty2[3],min(40, args.t),database, files, files.replace('_1.fastq','_2.fastq'), int(50/penalty2[0]), tempbamoutput)
-    cmds += remove_unmappedreads(tempbamoutput + '.sam')
+    # cmds += '/usr/bin/time -v java -Xms55g -Xmx55g -jar %s --max-penalty %.2f --snp-penalty %s --new-indel-penalty %s --extend-indel-penalty %s --ambiguity-penalty %s --max-penalty-span 0 --no-infer-ancestors --num-threads %s --reference %s --paired-queries %s %s --spacing 100 %s  --out-sam %s.sam\n' % (
+    #             latest_mapper, max_penalty, penalty2[0],penalty2[1],penalty2[2],penalty2[3],min(40, args.t),database, files, files.replace('_1.fastq','_2.fastq'), int(50/penalty2[0]), tempbamoutput)
+    # cmds += remove_unmappedreads(tempbamoutput + '.sam')
     # cmds += '/usr/bin/time -v java -Xms55g -Xmx55g -jar %s --max-penalty %.2f --snp-penalty %s --new-indel-penalty %s --extend-indel-penalty %s --ambiguity-penalty %s --max-penalty-span 0 --num-threads %s --reference %s --paired-queries %s %s --spacing 100 %s  --out-sam %s.ancestor.sam\n' % (
     #     latest_mapper, max_penalty, penalty2[0], penalty2[1], penalty2[2], penalty2[3], min(40, args.t), database,
     #     files, files.replace('_1.fastq', '_2.fastq'), int(50 / penalty2[0]), tempbamoutput)
     # cmds += remove_unmappedreads(tempbamoutput + '.ancestor.sam')
-    # cmds += '/usr/bin/time -v java -Xms55g -Xmx55g -jar %s --no-gapmers --max-penalty %.2f --snp-penalty %s --new-indel-penalty %s --extend-indel-penalty %s --ambiguity-penalty %s --max-penalty-span 0 --no-infer-ancestors --num-threads %s --reference %s --paired-queries %s %s --spacing 100 %s  --out-sam %s.nogap.sam\n' % (
-    #     latest_mapper, max_penalty, penalty2[0], penalty2[1], penalty2[2], penalty2[3], min(40, args.t), database,
-    #     files, files.replace('_1.fastq', '_2.fastq'), int(50 / penalty2[0]), tempbamoutput)
-    # cmds += remove_unmappedreads(tempbamoutput + '.nogap.sam')
+    cmds += '/usr/bin/time -v java -Xms55g -Xmx55g -jar %s --no-gapmers --max-penalty %.2f --snp-penalty %s --new-indel-penalty %s --extend-indel-penalty %s --ambiguity-penalty %s --max-penalty-span 0 --no-infer-ancestors --num-threads %s --reference %s --paired-queries %s %s --spacing 100 %s  --out-sam %s.nogap.sam\n' % (
+        latest_mapper, max_penalty, penalty2[0], penalty2[1], penalty2[2], penalty2[3], min(40, args.t), database,
+        files, files.replace('_1.fastq', '_2.fastq'), int(50 / penalty2[0]), tempbamoutput)
+    cmds += remove_unmappedreads(tempbamoutput + '.nogap.sam')
     # cmds += '/usr/bin/time -v java -Xms55g -Xmx55g -jar %s --no-infer-ancestors  --max-penalty %.2f --snp-penalty %s --new-indel-penalty %s --extend-indel-penalty %s --ambiguity-penalty %s --num-threads %s --reference %s --paired-queries %s %s   --out-sam %s.noancestor.sam\n' % (
     #     latest_mapper, max_penalty, penalty2[0], penalty2[1], penalty2[2], penalty2[3], min(40, args.t), database, files, files.replace('_1.fastq','_2.fastq'),
     #     tempbamoutput)
     # cmds += remove_unmappedreads(tempbamoutput + '.noancestor.sam')
     # kmer default: minimap 21, bowtie 20-22 for --sensitive mode, bwa 19
-    cmds += '/usr/bin/time -v java -Xms55g -Xmx55g -jar %s --block-length 12 --max-penalty %.2f --snp-penalty %s --new-indel-penalty %s --extend-indel-penalty %s --ambiguity-penalty %s --max-penalty-span 0 --no-infer-ancestors --num-threads %s --reference %s --paired-queries %s %s --spacing 100 %s  --out-sam %s.kmer12.sam\n' % (
+    cmds += '/usr/bin/time -v java -Xms55g -Xmx55g -jar %s  --no-gapmers --block-length 16 --max-penalty %.2f --snp-penalty %s --new-indel-penalty %s --extend-indel-penalty %s --ambiguity-penalty %s --max-penalty-span 0 --no-infer-ancestors --num-threads %s --reference %s --paired-queries %s %s --spacing 100 %s  --out-sam %s.kmer16.sam\n' % (
         latest_mapper_kmer, max_penalty, penalty2[0],penalty2[1],penalty2[2],penalty2[3],min(40, args.t),database, files, files.replace('_1.fastq','_2.fastq'), int(50/penalty2[0]), tempbamoutput)
-    cmds += remove_unmappedreads(tempbamoutput + '.kmer12.sam')
-    cmds += '/usr/bin/time -v java -Xms55g -Xmx55g -jar %s --block-length 18 --max-penalty %.2f --snp-penalty %s --new-indel-penalty %s --extend-indel-penalty %s --ambiguity-penalty %s --max-penalty-span 0 --no-infer-ancestors --num-threads %s --reference %s --paired-queries %s %s --spacing 100 %s  --out-sam %s.kmer18.sam\n' % (
+    cmds += remove_unmappedreads(tempbamoutput + '.kmer16.sam')
+    cmds += '/usr/bin/time -v java -Xms55g -Xmx55g -jar %s  --no-gapmers --block-length 20 --max-penalty %.2f --snp-penalty %s --new-indel-penalty %s --extend-indel-penalty %s --ambiguity-penalty %s --max-penalty-span 0 --no-infer-ancestors --num-threads %s --reference %s --paired-queries %s %s --spacing 100 %s  --out-sam %s.kmer20.sam\n' % (
         latest_mapper_kmer, max_penalty, penalty2[0], penalty2[1], penalty2[2], penalty2[3], min(40, args.t), database,
         files, files.replace('_1.fastq', '_2.fastq'), int(50 / penalty2[0]), tempbamoutput)
-    cmds += remove_unmappedreads(tempbamoutput + '.kmer18.sam')
-    cmds += '/usr/bin/time -v java -Xms55g -Xmx55g -jar %s --block-length 24 --max-penalty %.2f --snp-penalty %s --new-indel-penalty %s --extend-indel-penalty %s --ambiguity-penalty %s --max-penalty-span 0 --no-infer-ancestors --num-threads %s --reference %s --paired-queries %s %s --spacing 100 %s  --out-sam %s.kmer24.sam\n' % (
+    cmds += remove_unmappedreads(tempbamoutput + '.kmer20.sam')
+    cmds += '/usr/bin/time -v java -Xms55g -Xmx55g -jar %s  --no-gapmers --block-length 24 --max-penalty %.2f --snp-penalty %s --new-indel-penalty %s --extend-indel-penalty %s --ambiguity-penalty %s --max-penalty-span 0 --no-infer-ancestors --num-threads %s --reference %s --paired-queries %s %s --spacing 100 %s  --out-sam %s.kmer24.sam\n' % (
         latest_mapper_kmer, max_penalty, penalty2[0], penalty2[1], penalty2[2], penalty2[3], min(40, args.t), database,
         files, files.replace('_1.fastq', '_2.fastq'), int(50 / penalty2[0]), tempbamoutput)
     cmds += remove_unmappedreads(tempbamoutput + '.kmer24.sam')
     if tool == 'bwa':
         cmds = cmds.replace('--ambiguity-penalty %s '%(penalty2[3]),'')
+    return cmds
+
+def run_strobealign(files,database,tempbamoutput):
+    cmds = 'conda activate strobealign\n'
+    cmds += '/usr/bin/time -v strobealign -t %s -B %s -O %s -E %s -A %s -L 1000 %s %s %s > %s.sam\n'%(
+            min(40, args.t),penalty[0],penalty[1],penalty[2],penalty[3], database,files,files.replace('_1.fastq','_2.fastq'), tempbamoutput)
+    cmds += '/usr/bin/time -v strobealign -t %s -B %s -O %s -E %s -A %s -L 1000 -N 100 %s %s %s > %s.all.sam\n' % (
+        min(40, args.t), penalty[0], penalty[1], penalty[2], penalty[3], database, files,
+        files.replace('_1.fastq', '_2.fastq'), tempbamoutput)
+    cmds += 'conda activate bt\n'
+    cmds += remove_unmappedreads(tempbamoutput + '.sam')
+    cmds += remove_unmappedreads(tempbamoutput + '.all.sam')
+    return cmds
+
+def run_last(files,database,tempbamoutput):
+    cmds = 'lastdb -P30 -uNEAR %s.mydb %s\n'%(database,database)
+    if penalty[0] > 2:
+        cmds += '/usr/bin/time -v last-train -P30 -q %s -a %s -b %s -r %s -X 1 -Q1 %s.mydb %s %s > reads.train\n' % (penalty[0] - 2, penalty[1]- 2, penalty[2], penalty[3] + 2,
+                                                                                                                  database, files,files.replace('_1.fastq','_2.fastq'))
+        cmds += '/usr/bin/time -v lastal -P%s -T1 -q %s -a %s -b %s -r %s -X 1 -p reads.train %s.mydb %s %s > %s.maf\n'%(
+                    min(40, args.t),penalty[0] - 2, penalty[1]- 2, penalty[2], penalty[3] + 2,
+                                                                                                       database,files,files.replace('_1.fastq','_2.fastq'),tempbamoutput)
+    else:
+        cmds += '/usr/bin/time -v last-train -P30 -q %s -a %s -b %s -r %s -X 1 -Q1 %s.mydb %s %s > reads.train\n' % (
+        penalty[0] - 0.5, penalty[1] - 0.5, penalty[2], penalty[3] + 0.5,
+        database, files,files.replace('_1.fastq','_2.fastq'))
+        cmds += '/usr/bin/time -v lastal -P%s -T1 -q %s -a %s -b %s -r %s -X 1 -p reads.train %s.mydb %s %s > %s.maf\n' % (
+            min(40, args.t), penalty[0] - 0.5, penalty[1] - 0.5, penalty[2], penalty[3] + 0.5,
+            database, files,files.replace('_1.fastq','_2.fastq'), tempbamoutput)
+    if 'DRR' in database:
+        cmds = cmds.replace(' -X 1 -p ',' -X 1 -K5 -p ')
+    cmds += 'maf-convert sam %s.maf > %s.sam\n'%(tempbamoutput,tempbamoutput)
+    cmds += remove_unmappedreads(tempbamoutput + '.sam')
     return cmds
 
 ################################################## Main ########################################################
@@ -245,16 +278,22 @@ for folder in allfolders:
                 tempbamoutput = '%s/%s/%s_%s.mapper1' % (output_dir, tool, sample_name,database_name)
                 cmds = '#!/bin/bash\nsource ~/.bashrc\n'
                 cmds += run_mapper(fastq_file, database, tempbamoutput)
+                cmds += 'conda activate bt\n'
                 # # minimap
-                # cmds += 'conda activate bt\n'
                 # tempbamoutput = '%s/%s/%s_%s.minimap' % (output_dir, tool, sample_name,database_name)
                 # cmds += run_minimap(fastq_file, database, tempbamoutput)
                 # # bwa
                 # tempbamoutput = '%s/%s/%s_%s.bwa' % (output_dir, tool, sample_name,database_name)
                 # cmds += run_bwa(fastq_file, database, tempbamoutput)
-                # # bowtie
+                # bowtie
                 # tempbamoutput = '%s/%s/%s_%s.bowtie'%(output_dir,tool,sample_name,database_name)
                 # cmds += run_bowtie(fastq_file, database, tempbamoutput)
+                # # strobealign
+                # tempbamoutput = '%s/%s/%s_%s.strobealign' % (output_dir, tool, sample_name, database_name)
+                # cmds += run_strobealign(fastq_file, database, tempbamoutput)
+                # # last
+                # tempbamoutput = '%s/%s/%s_%s.last' % (output_dir, tool, sample_name, database_name)
+                # cmds += run_last(fastq_file, database, tempbamoutput)
                 f1 = open(os.path.join(input_script_sub, '%s.%s.%s.sh' % (sample_name,database_name,tool)), 'w')
                 f1.write(cmds)
                 f1.close()
