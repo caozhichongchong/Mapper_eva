@@ -74,7 +74,7 @@ for input_script in allinput_scripts:
                 time_set_index = time_set_index[:-1]
             alltimeindex += ['%s\t%s\t'%(genome,tool) +'%s\t%s\n'%(x,y) for x,y in zip(thread_set,time_set_index)]
             alltimemapping += ['%s\t%s\t' % (genome, tool) + '%s\t%s\n' % (x, y) for x, y in zip(thread_set, time_set_mapping)]
-        mem_set_all = [max(x,y) for x,y in zip(mem_set_index, mem_set_mapping)]
+        mem_set_all = [max(int(x),int(y))/1000000 for x,y in zip(mem_set_index, mem_set_mapping)]
         allmem += ['%s\t%s\t' % (genome, tool) + '%s\t%s\n' % (x, y) for x, y in zip(thread_set, mem_set_all)]
 for input_script in allinput_scriptsmapper:
     scriptname = os.path.basename(input_script)

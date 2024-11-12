@@ -120,12 +120,12 @@ def run_minimap(files,database,tempbamoutput):
 
 def run_bwa(files,database,tempbamoutput):
     cmds = 'bwa index %s\n'%(database)
-    # -A match score set as 2, -B -= 2
+    # -A match score set as 1, -B -= 1
     if penalty[0] > 2:
-        cmds += '/usr/bin/time -v bwa mem -t %s -B %s -O %s -E %s -A %s %s %s > %s.sam\n' % (
-                min(40, args.t), penalty[0] - 2,penalty[1]-2,penalty[2],penalty[3]+ 2, database, files, tempbamoutput)
+        cmds += '/usr/bin/time -v bwa mem -t %s -B %s -O %s -E %s -L 100 -A %s %s %s > %s.sam\n' % (
+                min(40, args.t), penalty[0] - 1,penalty[1]-1,penalty[2],penalty[3]+ 2, database, files, tempbamoutput)
     else:
-        cmds += '/usr/bin/time -v bwa mem -t %s -B %s -O %s -E %s -A %s %s %s > %s.sam\n' % (
+        cmds += '/usr/bin/time -v bwa mem -t %s -B %s -O %s -E %s  -L 100 -A %s %s %s > %s.sam\n' % (
             min(40, args.t), penalty[0] - 0.5, penalty[1] - 0.5, penalty[2], penalty[3] + 0.5, database, files,
             tempbamoutput)
     cmds += remove_unmappedreads(tempbamoutput + '.sam')
@@ -192,16 +192,16 @@ for fastq_file in allgenome:
         for tool in penaltyset:
             penalty = penaltyset[tool]
             cmds = '#!/bin/bash\nsource ~/.bashrc\n'
-            # mapper
-            tempbamoutput = '%s/%s/%s_%s.mapper1' % (output_dir, tool, sample_name,database_name)
-            cmds += run_mapper(fastq_file,database, tempbamoutput)
+            # # mapper
+            # tempbamoutput = '%s/%s/%s_%s.mapper1' % (output_dir, tool, sample_name,database_name)
+            # cmds += run_mapper(fastq_file,database, tempbamoutput)
             cmds += 'conda activate bt\n'
             # # minimap
             # tempbamoutput = '%s/%s/%s_%s.minimap' % (output_dir, tool, sample_name,database_name)
             # cmds += run_minimap(fastq_file, database, tempbamoutput)
-            # # bwa
-            # tempbamoutput = '%s/%s/%s_%s.bwa' % (output_dir, tool, sample_name,database_name)
-            # cmds += run_bwa(fastq_file, database, tempbamoutput)
+            # bwa
+            tempbamoutput = '%s/%s/%s_%s.bwa' % (output_dir, tool, sample_name,database_name)
+            cmds += run_bwa(fastq_file, database, tempbamoutput)
             # # bowtie
             # tempbamoutput = '%s/%s/%s_%s.bowtie'%(output_dir,tool,sample_name,database_name)
             # cmds += run_bowtie(fastq_file, database, tempbamoutput)
