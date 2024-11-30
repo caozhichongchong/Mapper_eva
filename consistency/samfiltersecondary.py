@@ -29,7 +29,7 @@ def samfilter(samfile):
         if not lines.startswith('@') and not lines.startswith('#'):
             lines_set = lines.split('\t')
             for element in lines_set:
-                if element.startswith('CAS'): #mapper only
+                if element.startswith('cs'): #mapper only
                     AS_col_sam=lines_set.index(element)
                     break
                 elif element.startswith('AS'):
