@@ -1,7 +1,7 @@
 import os,glob
 input_folder = '/media/caozhichongchong/baf7fe39-6567-421c-a79a-4c274b89f9f7/scripts/snp_curate/SNP_model_parallel_new/'
 allinput_scripts = glob.glob('%s/*.out'%(input_folder))
-allinput_scriptsmapper = glob.glob('%s/*mapper.sh.err'%(input_folder)) + glob.glob('%s/*mapper*mer.sh.err'%(input_folder))
+allinput_scriptsmapper = glob.glob('%s/*mapper.sh.out'%(input_folder)) + glob.glob('%s/*mapper*mer.sh.out'%(input_folder))
 allinput_scriptsmappermem = glob.glob('%s/*mappermem.sh.out'%(input_folder))
 
 def get_thread(bashfile):
@@ -77,6 +77,7 @@ for input_script in allinput_scripts:
         mem_set_all = [max(int(x),int(y))/1000000 for x,y in zip(mem_set_index, mem_set_mapping)]
         allmem += ['%s\t%s\t' % (genome, tool) + '%s\t%s\n' % (x, y) for x, y in zip(thread_set, mem_set_all)]
 for input_script in allinput_scriptsmapper:
+    print(input_script)
     scriptname = os.path.basename(input_script)
     genome = scriptname.split('.')[0]
     tool = scriptname.split('.')[1]
@@ -85,8 +86,9 @@ for input_script in allinput_scriptsmapper:
     time_set_mapping = []
     i = 0
     for lines in open(input_script, 'r'):
-        if lines.startswith('Hashed reference '):
+        if lines.startswith('Hashed reference'):
             if ' 54 ' in lines or ' 58 ' in lines:
+                print(lines)
                 realtime = (lines.split('at ')[1].split('\n')[0].replace(' ', ''))
                 time_set_index.append(convert_to_seconds(realtime))
         if lines.startswith('Done in '):

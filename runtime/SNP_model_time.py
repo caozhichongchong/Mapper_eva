@@ -305,28 +305,27 @@ for database in databaseset:
         os.path.join(input_script_sub, '%s.mapper24mer.sh' % (databasename)),
         os.path.join(input_script_sub, '%s.mapper24mer.sh' % (databasename)),
         os.path.join(input_script_sub, '%s.mapper24mer.sh' % (databasename)))
-
-#     cmds += 'bash %s 2> %s.out 1> %s.err\n' % (
-#         os.path.join(input_script_sub, '%s.bowtie.sh' % (databasename)),
-#     os.path.join(input_script_sub, '%s.bowtie.sh' % (databasename)),
-#     os.path.join(input_script_sub, '%s.bowtie.sh' % (databasename)))
-#     cmds += 'bash %s 2> %s.out 1> %s.err\n' % (
-#         os.path.join(input_script_sub, '%s.minimap.sh' % (databasename)),
-#         os.path.join(input_script_sub, '%s.minimap.sh' % (databasename)),
-#         os.path.join(input_script_sub, '%s.minimap.sh' % (databasename))
-#     )
-#     cmds += 'bash %s 2> %s.out 1> %s.err\n' % (
-#         os.path.join(input_script_sub, '%s.bwa.sh' % (databasename)),
-#     os.path.join(input_script_sub, '%s.bwa.sh' % (databasename)),
-#     os.path.join(input_script_sub, '%s.bwa.sh' % (databasename)))
-#     cmds += 'bash %s 2> %s.out 1> %s.err\n' % (
-#         os.path.join(input_script_sub, '%s.strobealign.sh' % (databasename)),
-#         os.path.join(input_script_sub, '%s.strobealign.sh' % (databasename)),
-#         os.path.join(input_script_sub, '%s.strobealign.sh' % (databasename)))
-#     cmds += 'bash %s 2> %s.out 1> %s.err\n' % (
-#         os.path.join(input_script_sub, '%s.last.sh' % (databasename)),
-#         os.path.join(input_script_sub, '%s.last.sh' % (databasename)),
-#         os.path.join(input_script_sub, '%s.last.sh' % (databasename)))
+    cmds += 'bash %s 2> %s.out 1> %s.err\n' % (
+        os.path.join(input_script_sub, '%s.bowtie.sh' % (databasename)),
+    os.path.join(input_script_sub, '%s.bowtie.sh' % (databasename)),
+    os.path.join(input_script_sub, '%s.bowtie.sh' % (databasename)))
+    cmds += 'bash %s 2> %s.out 1> %s.err\n' % (
+        os.path.join(input_script_sub, '%s.minimap.sh' % (databasename)),
+        os.path.join(input_script_sub, '%s.minimap.sh' % (databasename)),
+        os.path.join(input_script_sub, '%s.minimap.sh' % (databasename))
+    )
+    cmds += 'bash %s 2> %s.out 1> %s.err\n' % (
+        os.path.join(input_script_sub, '%s.bwa.sh' % (databasename)),
+    os.path.join(input_script_sub, '%s.bwa.sh' % (databasename)),
+    os.path.join(input_script_sub, '%s.bwa.sh' % (databasename)))
+    cmds += 'bash %s 2> %s.out 1> %s.err\n' % (
+        os.path.join(input_script_sub, '%s.strobealign.sh' % (databasename)),
+        os.path.join(input_script_sub, '%s.strobealign.sh' % (databasename)),
+        os.path.join(input_script_sub, '%s.strobealign.sh' % (databasename)))
+    cmds += 'bash %s 2> %s.out 1> %s.err\n' % (
+        os.path.join(input_script_sub, '%s.last.sh' % (databasename)),
+        os.path.join(input_script_sub, '%s.last.sh' % (databasename)),
+        os.path.join(input_script_sub, '%s.last.sh' % (databasename)))
     f1 = open(os.path.join(input_script_sub, '%s.all.vcf.sh0' % (databasename)), 'w')
     f1.write('#!/bin/bash\nsource ~/.bashrc\n%s' % (''.join(cmds)))
     f1.close()
