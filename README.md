@@ -1,7 +1,7 @@
 # Mapper_eva
-### Code for paper "Mapper: fast and accurate sequence alignment via x-mers"
+### Code for paper "X-Mapper: fast and accurate sequence alignment via x-mers"
 
-Mapper is a fast and accurate short read alignment tool via x-mers.
+X-Mapper is a fast and accurate short read alignment tool via x-mers.
 
 ### Scripts to evaluate alignment performance
 - `Alignment_accuracy.ipynb`: Code to evaluate alignment accuracy and run time.
